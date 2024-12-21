@@ -1,5 +1,15 @@
 import Header from "@/components/header";
+import Product from "@/components/product";
+import Title from "@/components/title";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { onSaleData } from "@/components/dummy-datas/onSale";
+import CategoryCard from "@/components/category";
+import { categoryData } from "@/components/dummy-datas/category";
+import { bestSale } from "@/components/dummy-datas/bestSellingProducts";
+
 export default function Home() {
   return (
     <>
@@ -57,6 +67,258 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <section className={"container grid grid-cols-12 mt-[140px]"}>
+          <div className={"col-span-12 mb-[40px]"}>
+            <Title subtitle={"Today’s"} title={"Flash Sales"} />
+          </div>
+
+          <div className={"col-span-12"}>
+            <Swiper slidesPerView={4} spaceBetween={30}>
+              {onSaleData.map((product) => (
+                <SwiperSlide key={product.id}>
+                  <Product
+                    image={product.image}
+                    name={product.name}
+                    price={product.price}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="flex justify-center ">
+              <button
+                className={
+                  "py-[16px] px-[48px] rounded-[4px] text-white bg-[#DB4444] mt-[60px]"
+                }
+              >
+                View All Products
+              </button>
+            </div>
+          </div>
+
+          <div
+            className={
+              "col-span-12 bg-[#B3B3B3] w-full h-[1px] mt-[60px] mb-[80px]"
+            }
+          >
+            {" "}
+          </div>
+        </section>
+
+        <section className={"container grid grid-cols-12"}>
+          <div className={"col-span-12 mb-[40px]"}>
+            <Title subtitle={"Categories"} title={"Browse By Category"} />
+
+            <div></div>
+          </div>
+
+          <div className={"col-span-12"}>
+            <Swiper slidesPerView={6}>
+              {categoryData.map((category) => (
+                <SwiperSlide key={category.id}>
+                  <CategoryCard image={category.image} name={category.name} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          <div
+            className={"col-span-12 bg-[#B3B3B3] w-full h-[1px] my-[70px]"}
+          ></div>
+        </section>
+
+        <section>
+          <div className="container grid grid-cols-12">
+            <div className="col-span-12 mb-[40px] flex justify-between items-end">
+              <Title subtitle={"This Month"} title={"Best Selling Products"} />
+
+              <div>
+                <button
+                  className={
+                    "py-[16px] px-[48px] rounded-[4px] text-white bg-[#DB4444] mt-[60px]"
+                  }
+                >
+                  View All
+                </button>
+              </div>
+            </div>
+
+            <div className="col-span-12">
+              <Swiper slidesPerView={4} spaceBetween={30}>
+                {bestSale.map((product) => (
+                  <SwiperSlide key={product.id}>
+                    <Product
+                      image={product.image}
+                      name={product.name}
+                      price={product.price}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </section>
+
+        <section className="container grid grid-cols-12 bg-black mt-[140px] mb-[71px]">
+          <div className={"col-span-12 py-[69px] pl-[56px] flex gap-x-[27px]"}>
+            <div>
+              <p className={"text-[#00FF66] font-semibold"}>Categories</p>
+              <h1 className={"text-[48px] font-semibold text-white my-[32px]"}>
+                Enhance Your <br /> Music Experience
+              </h1>
+
+              <ul className={" space-x-[24px]"}>
+                <li
+                  className={
+                    "py-[14px] px-[15px] bg-white inline-block rounded-full text-center text-[11px]"
+                  }
+                >
+                  <p className={"text-base"}>35</p>
+                  <p>Hours</p>
+                </li>
+                <li
+                  className={
+                    "py-[14px] px-[17px] bg-white inline-block rounded-full text-center text-[11px]"
+                  }
+                >
+                  <p className={"text-base"}>5</p>
+                  <p>Days</p>
+                </li>
+                <li
+                  className={
+                    "py-[14px] px-[10px] bg-white inline-block rounded-full text-center text-[11px]"
+                  }
+                >
+                  <p className={"text-base"}>35</p>
+                  <p>Minutes</p>
+                </li>
+                <li
+                  className={
+                    "py-[14px] px-[7px] bg-white inline-block rounded-full text-center text-[11px]"
+                  }
+                >
+                  <p className={"text-base"}>35</p>
+                  <p>Seconds</p>
+                </li>
+              </ul>
+
+              <button
+                className={
+                  "py-[16px] px-[48px] rounded-[4px] text-white bg-[#00FF66] mt-[60px]"
+                }
+              >
+                Buy Now!
+              </button>
+            </div>
+            <div className={"w-[600px] h-[420px]"}>
+              <Image
+                src={"/images/music.png"}
+                alt={"music"}
+                width={600}
+                height={420}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="container grid grid-cols-12">
+          <div className="col-span-12 mb-[40px] flex justify-between items-end">
+            <Title subtitle={"This Month"} title={"Best Selling Products"} />
+
+            {/* <div>
+              <button
+                className={
+                  "py-[16px] px-[48px] rounded-[4px] text-white bg-[#DB4444] mt-[60px]"
+                }
+              >
+                View All
+              </button>
+            </div> */}
+          </div>
+
+          <div className="col-span-12">
+            <Swiper slidesPerView={4} spaceBetween={30}>
+              {bestSale.map((product) => (
+                <SwiperSlide key={product.id}>
+                  <Product
+                    image={product.image}
+                    name={product.name}
+                    price={product.price}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="flex justify-center ">
+              <button
+                className={
+                  "py-[16px] px-[48px] rounded-[4px] text-white bg-[#DB4444] mt-[60px]"
+                }
+              >
+                View All Products
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section className="container grid grid-cols-12 mt-[140px]">
+          <div className="col-span-12 gap-x-[30px] mb-[40px]">
+            <Title subtitle={"Featured"} title={"New Arrival"} />
+          </div>
+
+          <div
+            className={
+              "col-span-6 bg-black relative w-[570px] h-[600px] z-10 rounded-[4px]"
+            }
+          >
+            <Image
+              src={"/images/playstation.png"}
+              alt={"music"}
+              width={511}
+              height={511}
+              className={"absolute bottom-0 left-[29px] right-[30px] -z-10"}
+            />
+
+            <div className={"space-y-[16px] z-40 p-[32px] bottom-0 absolute"}>
+              <h1 className={"text-white text-[24px] font-semibold"}>
+                PlayStation 5
+              </h1>
+              <p className={"text-white text-[14px]"}>
+                Black and White version of the PS5 <br /> coming out on sale.
+              </p>
+              <button className={"text-white cursor-pointer"}>Shop Now</button>
+            </div>
+          </div>
+
+          <div className={"col-span-6"}>
+            <div
+              className={
+                "bg-[#0D0D0D] relative w-full h-[286px] -z-10 right-0 rounded-[4px]"
+              }
+            >
+              <Image
+                src={"/images/woman.png"}
+                alt={"woman"}
+                width={432}
+                height={286}
+                className={"absolute right-0  -z-10 "}
+              />
+
+              <div className={"space-y-[16px] z-40 p-[32px] bottom-0 absolute"}>
+                <h1 className={"text-white text-[24px] font-semibold"}>
+                  Women’s Collections
+                </h1>
+                <p className={"text-white text-[14px]"}>
+                  Featured woman collections that <br /> give you another vibe.
+                </p>
+                <button className={"text-white cursor-pointer"}>
+                  Shop Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
