@@ -26,7 +26,12 @@ const Menu = () => {
     <div>
       <ul className={"flex gap-x-[48px]"}>
         {menuData.map((item) => (
-          <li key={item.id}>{item.name}</li>
+          <li
+            key={item.id}
+            className="hover:border-b border-[#808080] border-0 cursor-pointer transition-all duration-300"
+          >
+            {item.name}
+          </li>
         ))}
       </ul>
     </div>

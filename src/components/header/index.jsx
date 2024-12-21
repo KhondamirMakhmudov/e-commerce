@@ -3,6 +3,8 @@ import Lang from "../lang";
 import Brand from "../brand";
 import Menu from "../menu";
 import Search from "../search";
+import Selected from "../selected";
+import ShopBasket from "../shop-basket";
 
 const Header = () => {
   return (
@@ -31,13 +33,21 @@ const Header = () => {
         </div>
       </div>
 
-      <div className={"container mt-[40px] mb-[16px] flex items-center"}>
+      <div
+        className={
+          "container mt-[40px] mb-[16px] flex items-center justify-between"
+        }
+      >
         <Brand />
 
         <Menu />
 
-        <div>
+        <div className="flex items-center">
           <Search />
+
+          <Selected />
+
+          <ShopBasket />
         </div>
       </div>
     </header>
