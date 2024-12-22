@@ -9,6 +9,7 @@ import { onSaleData } from "@/components/dummy-datas/onSale";
 import CategoryCard from "@/components/category";
 import { categoryData } from "@/components/dummy-datas/category";
 import { bestSale } from "@/components/dummy-datas/bestSellingProducts";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -262,7 +263,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container grid grid-cols-12 mt-[140px]">
+        <section className="container grid grid-cols-12 gap-x-[30px] mt-[140px]">
           <div className="col-span-12 gap-x-[30px] mb-[40px]">
             <Title subtitle={"Featured"} title={"New Arrival"} />
           </div>
@@ -317,8 +318,73 @@ export default function Home() {
                 </button>
               </div>
             </div>
+
+            <div className="w-full flex mt-[31px] gap-x-[30px]">
+              <div
+                className={
+                  "bg-[#0D0D0D] relative w-full h-[286px] -z-10 right-0 rounded-[4px]"
+                }
+              >
+                <Image
+                  src={"/images/speakers.png"}
+                  alt={"speakers"}
+                  width={210}
+                  height={222}
+                  className={
+                    "absolute left-[31px] top-[30px] bottom-[30px] right-[31px] -z-10 "
+                  }
+                />
+
+                <div
+                  className={"space-y-[8px] z-40 p-[24px] bottom-0 absolute"}
+                >
+                  <h1 className={"text-white text-[24px] font-semibold"}>
+                    Speakers
+                  </h1>
+                  <p className={"text-white text-[14px]"}>
+                    Amazon wireless speakers
+                  </p>
+                  <button className={"text-white cursor-pointer"}>
+                    Shop Now
+                  </button>
+                </div>
+              </div>
+              <div
+                className={
+                  "bg-[#0D0D0D] relative w-full h-[286px] -z-10  rounded-[4px]"
+                }
+              >
+                <Image
+                  src={"/images/gucci.png"}
+                  alt={"gucci"}
+                  width={210}
+                  height={222}
+                  className={
+                    "absolute left-[30px] top-[30px] bottom-[32px] right-[30px]  -z-10 "
+                  }
+                />
+
+                <div
+                  className={"space-y-[8px] z-40 p-[24px] bottom-0 absolute"}
+                >
+                  <h1 className={"text-white text-[24px] font-semibold"}>
+                    Perfume
+                  </h1>
+                  <p className={"text-white text-[14px]"}>
+                    GUCCI INTENSE OUD EDP
+                  </p>
+                  <button className={"text-white cursor-pointer"}>
+                    Shop Now
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+
+        <section className="container grid grid-cols-12 mt-[140px]"></section>
+
+        <Footer />
       </main>
     </>
   );
