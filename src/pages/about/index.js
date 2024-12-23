@@ -1,3 +1,5 @@
+import { employeeDetails } from "@/components/dummy-datas/employee";
+import EmployeeCard from "@/components/employee";
 import Main from "@/layouts/main";
 import Image from "next/image";
 import Link from "next/link";
@@ -189,6 +191,21 @@ const About = () => {
                 <p>Anual gross sale in our site</p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className={"my-[140px]"}>
+          <div className={"container grid grid-cols-12 gap-x-[30px]"}>
+            {employeeDetails.map((item) => (
+              <EmployeeCard
+                id={item.id}
+                key={item.id}
+                name={item.name}
+                desc={item.desc}
+                width={item.width}
+                height={item.height}
+              />
+            ))}
           </div>
         </section>
       </main>
