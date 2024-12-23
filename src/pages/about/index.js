@@ -1,4 +1,5 @@
 import { employeeDetails } from "@/components/dummy-datas/employee";
+import { fullServices } from "@/components/dummy-datas/full-services";
 import EmployeeCard from "@/components/employee";
 import Main from "@/layouts/main";
 import Image from "next/image";
@@ -205,6 +206,37 @@ const About = () => {
                 width={item.width}
                 height={item.height}
               />
+            ))}
+          </div>
+        </section>
+
+        <section className={"py-[140px]"}>
+          <div className="container flex mx-[113px] gap-x-[88px]">
+            {fullServices.map((item) => (
+              <div key={item.id}>
+                <div
+                  className={
+                    "flex flex-col items-center gap-x-[30px] mb-[30px]"
+                  }
+                >
+                  <div className="bg-[#C1C0C1] p-[12px] rounded-full mb-[24px]">
+                    <div className="bg-black p-[11px] rounded-full ">
+                      <Image
+                        src={`/icons/${item.image}`}
+                        alt={item.title}
+                        width={40}
+                        height={40}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className={"text-[20px] font-semibold"}>
+                      {item.title}
+                    </h3>
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
